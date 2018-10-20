@@ -20,12 +20,22 @@
 		 </button>
 		 <div class="collapse navbar-collapse" id="nav">
 		 	<ul class="navbar-nav ml-auto">
-		 		<li class="nav-item">
-		 			<a href="cadastro" class="nav-link btn-primary btn-sm px-2 mr-lg-2 my-2 my-lg-0 text-center text-light">Cadastre-se</a>
-		 		</li>
-		 		<li class="nav-item">
-		 			<a href="login" class="nav-link btn-info btn-sm px-4 text-center text-light">Login</a>
-		 		</li>
+		 		<?php if(!empty($login) && $login === true ): ?>
+					<li class="nav-item">
+			 			<a href="cadastro" class="nav-link btn btn-info btn-sm  mr-lg-2 my-2 my-lg-0 text-center text-light">Meus anúncios</a>
+			 		</li>
+			 		<li class="nav-item">
+			 			<a href="login" class="nav-link btn btn-danger btn-sm px-4 text-center text-light">Sair</a>
+			 		</li>		 		
+		 		<?php endif; ?>
+		 		<?php if(empty($login)): ?>
+			 		<li class="nav-item">
+			 			<a href="cadastro" class="nav-link btn btn-primary btn-sm px-2 mr-lg-2 my-2 my-lg-0 text-center text-light">Cadastre-se</a>
+			 		</li>
+			 		<li class="nav-item">
+			 			<a href="login" class="nav-link btn btn-info btn-sm px-4 text-center text-light">Login</a>
+			 		</li>
+		 		<?php endif; ?>
 		 	</ul>
 		 </div>
 	  </nav>
@@ -35,7 +45,7 @@
 		<main>
 		  <div class="row p-2">
 			<div class="col-sm-2">
-			  dasdas
+			  OIsasa
 			</div>
 			<div class="col-sm-10">
 			  <?php $this->loadView($viewName, $viewData); ?>

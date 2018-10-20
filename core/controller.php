@@ -5,6 +5,7 @@ class controller{
 		require "views/{$viewName}.php";
 	}
 	public function loadTemplate($viewName, $viewData = []){
+		extract($viewData);
 		require "views/template.php";
 	}
 }
