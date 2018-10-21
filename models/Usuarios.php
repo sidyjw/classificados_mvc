@@ -18,6 +18,23 @@ class Usuarios extends model{
 		}
 	}
 	
+	public function login($email , $senha){
+		$sql= $this->db->prepare("SELECT id FROM usuarios WHERE email = :email AND senha = :senha");
+		$sql->bindValue(":email", $email);
+		$sql->bindValue(":senha", $senha);
+
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$dados = $sql->fetch();
+			$_SESSION['id'] = $dados['id'];
+			$_SESSION['login'] = true;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	public function emailExiste($email){
 		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email");
 		$sql->bindValue(":email", $email);
